@@ -2,7 +2,9 @@
 
 Local-LLM_FineTune permits local finetuning of you're pre-trained LLM choice. 
 The purpose of this repository is to teach the process of LLM finetuning 
+
 Please review the docs folder for more information on each script.
+
 I wrote this codebase using my research of LLMs and used GPT4, Advanced Data Analysis, to help me write the code. 
 You'll find that you'll need a 3090 (24GB VRAM) or higher to finetune in any realistic timeframe.
 Please check out TheBoke ( https://huggingface.co/TheBloke ) for GPTQ/GGUFs to train time efficiently. 
