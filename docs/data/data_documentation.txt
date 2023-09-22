@@ -1,0 +1,36 @@
+
+Data Documentation
+------------------
+
+1. Purpose and Importance:
+The `data` folder is the cornerstone of the entire project. Machine Learning, especially deep learning models, are heavily data-driven. The quality, diversity, and volume of data directly influence the model's accuracy, ability to generalize, and overall performance. Within the context of this project, the `data` folder contains textual data of email bodies, which serves as the raw material for training the model.
+
+2. Structure and Contents:
+- `training_data.db`: 
+  - Type: SQLite database
+  - Role: Contains the main bulk of email bodies used for training.
+  - Reason for Choice: Databases offer efficient, scalable, and structured storage, making it easier to handle large volumes of data. SQLite, being a lightweight database, doesn't require a server setup, making it convenient for projects like these.
+- `validation_data.db`: 
+  - Type: SQLite database
+  - Role: Houses a subset of email bodies that aren't used in training. These are reserved to evaluate the model's performance on unseen data.
+  - Reason for Choice: Using a database format for validation ensures consistency in data handling and processing between training and validation phases.
+
+3. Detailed Insights:
+- Training Data (`training_data.db`):
+  - Structure: Expected to contain tables with rows of email data. Each row corresponds to the body of an email.
+  - Significance: The diversity in the email bodies helps the model learn various linguistic patterns, sentence structures, and nuances. This wide exposure is crucial for the model to generate meaningful responses in the future.
+  - Tokenization: Before feeding into the model, the textual data is tokenized, converting words or characters into numerical tokens. This step is critical because deep learning models understand numbers, not raw text.
+- Validation Data (`validation_data.db`):
+  - Structure: Expected to contain tables similar to the training database, with rows of email data.
+  - Significance: Evaluating a model on unseen data gives a genuine measure of its performance. It ensures that the model isn't just memorizing the training data but is genuinely learning patterns.
+  - Tokenization: Similar to training data, validation data is also tokenized before evaluation.
+
+4. Usage Guidelines:
+- Pre-processing: Before using the data, ensure it's clean. Remove any redundant or sensitive information. This step not only respects privacy but also ensures the model isn't learning from noise.
+- Loading Utilities: Use the provided scripts and utilities for efficient and correct data loading. Manually handling data can introduce errors.
+- Tokenization: Always tokenize the data using the provided tokenizer. Different tokenizers can produce different results, leading to inconsistencies.
+
+5. Maintenance and Future Considerations:
+- Backups: Always maintain backups. Data is invaluable, and its loss can be detrimental to the project's progress.
+- Updates: When adding new data, ensure it's consistent with existing data formats. Inconsistencies can lead to errors or biased training.
+- Diversity: Over time, consider diversifying the data. More varied data can help improve the model's robustness and generalization.

@@ -1,0 +1,116 @@
+
+Scripts Documentation
+---------------------
+
+1. Purpose and Importance:
+The `scripts` directory contains the engine of the entire project: the Python scripts that execute various tasks from data extraction, preprocessing, training, and validation. Each script is designed for a specific purpose and ensures that the machine learning pipeline operates smoothly and efficiently.
+
+2. Structure and Contents:
+The directory contains several scripts, each with its unique purpose:
+
+- `database_utils.py`:
+  - Role: Handles the extraction of data from the database.
+  - Importance: Acts as the primary interface between the raw data in the database and the subsequent stages of the machine learning pipeline.
+  
+- `data_utils.py`:
+  - Role: Contains functions and utilities for preprocessing and preparing data for training.
+  - Importance: Ensures the data is in the right format and structure to feed into the model.
+
+- `train_model.py`:
+  - Role: The core training script. It initializes the model, tokenizes the data, and then trains the model.
+  - Importance: This script is where the actual learning happens. It fine-tunes the pretrained model on the provided data and produces the final trained model.
+
+3. Detailed Insights:
+- Data Flow: The process typically starts with `database_utils.py`, where data is extracted. Then, `data_utils.py` processes and prepares this data. Finally, `train_model.py` takes this prepared data and trains the model.
+- Dependencies and Interconnections: The scripts are not standalone. They rely on each other. For example, `train_model.py` depends on functions from both `database_utils.py` and `data_utils.py`.
+- Modularity: Each script is designed to handle specific tasks, ensuring that the codebase remains modular and maintainable. This modularity also allows for easier debugging and updates in the future.
+
+4. Usage Guidelines:
+- Execution Order: Always start with data extraction (`database_utils.py`), followed by data preparation (`data_utils.py`), and then model training (`train_model.py`).
+- Parameter Adjustments: Each script may contain configurable parameters. Before running, ensure that these parameters (like file paths, model names, or training parameters) are correctly set.
+- Error Handling: Most scripts include basic error handling. However, always monitor the first few runs to catch any unforeseen issues.
+
+5. Maintenance and Future Considerations:
+- Updates: As the project evolves, scripts may need updates. Always document changes and test new versions thoroughly.
+- Scalability: If the dataset grows significantly or if there's a need to train more complex models, consider optimizations like parallel processing or distributed training.
+- Refactoring: Over time, as more features or functionalities are added, consider refactoring the scripts to keep them clean, modular, and efficient.
+
+## evaluate_model.py
+
+### Overview
+This script is designed to evaluate the performance of a pre-trained model on validation data. 
+
+### Dependencies
+- Transformers library for loading the model and tokenizer.
+- data_utils for loading validation data.
+- datasets library for metric computation.
+
+### Key Variables
+- `MODEL_PATH`: The path where the pre-trained model is located.
+- `VALIDATION_DATA_PATH`: The path to the validation data.
+- `tokenized_validation_data_file`: The path where tokenized validation data is saved or loaded from.
+
+### Functionality
+- The script first checks if tokenized validation data is already available. If yes, it loads the tokenized data; otherwise, it tokenizes the validation data and saves it for future use.
+- The script then loads the pre-trained model and evaluates it on the validation data.
+- Various metrics such as accuracy, precision, recall, F1 score, and perplexity are used to gauge the model's performance.
+
+### Output
+The evaluation metrics are printed to the terminal, providing insights into the model's performance on the validation set.
+
+---
+
+
+### `data_processing.py`
+
+This script is centered around processing and handling email content for machine learning tasks.
+
+**Functional Overview**:
+1. **Import Necessary Libraries**: Essential PyTorch libraries, such as `torch` and `Dataset`, are imported to facilitate dataset creation.
+2. **EmailDataset Class**:
+   - **Purpose**: Represents a PyTorch Dataset that enables efficient handling and indexing of email body content.
+   - **Methods**:
+     - `__init__`: Constructor that initializes the dataset with a list of email bodies.
+     - `__len__`: Returns the number of emails in the dataset.
+     - `__getitem__`: Allows the dataset to be indexed, enabling compatibility with PyTorch's DataLoader.
+
+**Usage**:
+Integrate this script with any PyTorch-based pipeline that requires structured access to email body data. Instantiate the `EmailDataset` class with your email data, and it's ready to be used with data loaders or other PyTorch utilities.
+
+### `db_extraction.py`
+
+This script facilitates the extraction of email content stored in an SQLite database.
+
+**Functional Overview**:
+1. **Import Necessary Libraries**: The script imports `sqlite3` to interface with SQLite databases.
+2. **Function - `extract_email_content_from_db`**:
+   - **Purpose**: This function connects to an SQLite database, retrieves email content from a table, and returns it as a list.
+   - **Parameters**:
+     - `db_path`: Path to the SQLite database file.
+   - **Workflow**:
+     - Establish a connection to the SQLite database.
+     - Execute a query to fetch the email content from the 'Content' column of the database.
+     - Convert the fetched data into a list of email bodies.
+     - Close the database connection to free up resources.
+   - **Returns**: List containing email body content extracted from the database.
+
+**Usage**:
+Use this script as a utility to extract email data from SQLite databases. The function can be imported into other scripts or pipelines that require access to email content from a database.
+
+### `training_extract.py`
+
+**Purpose**: Efficiently process and extract email content from a large CSV dataset and save the processed data into separate SQLite databases for training and validation.
+
+**Functional Overview**:
+1. **Import Necessary Libraries**: The script uses `pandas` for data processing, `sqlite3` for database operations, `csv` for CSV file handling, and `os` for OS-level operations.
+2. **Define Paths**: Paths for the CSV file and SQLite databases (both for training and validation) are defined.
+3. **Create SQLite Databases**: Establishes connections to SQLite databases for training and validation data.
+4. **Set Chunk Size**: Defines a chunk size to process the CSV in smaller batches, facilitating more efficient processing of large datasets.
+5. **Data Processing Loop**:
+   - Iterates over the CSV dataset in chunks.
+   - Reconstructs the email content in each chunk.
+   - Splits the chunk into training and validation sets.
+   - Writes the processed data to the respective SQLite databases.
+
+**Usage**:
+Run this script when you have a new, large CSV dataset with email content. The script will process the data and populate the SQLite databases with tokenized email content, ready for use in model training and validation.
