@@ -1,7 +1,7 @@
 # Local-LLM_FineTune
 
 Local-LLM_FineTune permits local finetuning of you're pre-trained LLM choice. 
-The purpose of this repository is to teach the process of LLM finetuning 
+The purpose of this repository is to teach the process of LLM finetuning. 
 
 Please review the docs folder for more information on each script.
 
