@@ -1,4 +1,4 @@
-# Learning-LLM
+# Local-LLM_FineTune
 
 Data Documentation
 - data/: Contains datasets used for model training and evaluation.
