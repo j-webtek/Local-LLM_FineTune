@@ -111,7 +111,7 @@ def save_model(model, tokenizer, save_path: str = "./models/final"):
 
 # The main execution script
 if __name__ == "__main__":
-    DB_PATH = r"C:\Users\Jack\Desktop\Model_Training\data\training_data.db"
+    DB_PATH = r"PATH"
     MODEL_NAME = "gpt2-medium" # needs to be changed if switching models
     
     email_bodies = load_data_from_db(DB_PATH)
