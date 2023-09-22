@@ -10,9 +10,9 @@ import pickle
 from datasets import load_metric
 
 # Paths
-MODEL_PATH = r"C:\Users\Jack\Desktop\Model_Training\models\final"
-VALIDATION_DATA_PATH = r"C:\Users\Jack\Desktop\Model_Training\data\validation_data.txt"
-RESULTS_OUTPUT_PATH = r"C:\Users\Jack\Desktop\Model_Training\evaluation_results.txt"
+MODEL_PATH = r"PATH"
+VALIDATION_DATA_PATH = r"PATH"
+RESULTS_OUTPUT_PATH = r"PATH"
 
 # Load the model and tokenizer
 model = AutoModelForCausalLM.from_pretrained(MODEL_PATH)
