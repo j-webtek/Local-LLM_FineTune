@@ -1,5 +1,10 @@
 # Local-LLM_FineTune
 
+Local-LLM_FineTune permits local finetuning of you're pre-trained LLM choice. Please review the Environment and Requirements sections below.
+I wrote this codebase using my research of LLMs and used GPT4, Advanced Data Analysis, to help me write the code. 
+You'll find that you'll need a 3090 (24GB VRAM) or higher to finetune in any realistic timeframe. It would be in your best interest to use pre-trained models.
+Please check out TheBoke ( https://huggingface.co/TheBloke ) for GPTQ/GGUFs to train time efficiently. 
+
 Data Documentation
 - data/: Contains datasets used for model training and evaluation.
   - train_data.csv: The training dataset containing input-output pairs.
@@ -58,7 +63,7 @@ Environment and Requirements
 - Operating System: Microsoft Windows 11 Home
 - System: x64-based PC
 - Processor: 13th Gen Intel(R) Core(TM) i7-13700K, 3400 Mhz, 16 Core(s), 24 Logical Processor(s)
-- GPU: NVIDIA GeForce RTX 3090
+- GPU: NVIDIA GeForce RTX 3090 (at least 24GB VRAM)
 
 Required Python Packages:
 transformers==4.33.0
