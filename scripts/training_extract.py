@@ -4,9 +4,9 @@ import csv
 import os
 
 # Define paths based on the provided information
-CSV_FILE_PATH = "C:/Users/Jack/Desktop/PDF Extractor Basic/master-gdc-gdcdatasets-2020445568-2020445568/Emails_Training/emails.csv"
-TRAIN_DB_PATH = "C:/Users/Jack/Desktop/Model_Training/training_data.db"
-VALID_DB_PATH = "C:/Users/Jack/Desktop/Model_Training/validation_data.db"
+CSV_FILE_PATH = "PATH"
+TRAIN_DB_PATH = "PATH"
+VALID_DB_PATH = "PATH"
 
 # Create the SQLite databases for training and validation data
 conn_train = sqlite3.connect(TRAIN_DB_PATH)
