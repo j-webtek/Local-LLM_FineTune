@@ -5,15 +5,14 @@ The purpose of this repository is to teach the process of LLM finetuning.
 
 Please review the docs folder for more information on each script.
 
-I wrote this codebase by research of LLMs and used GPT4, Advanced Data Analysis, to help me write the code. 
+I wrote this codebase by researching of LLMs and used GPT4, Advanced Data Analysis, to help me write the code. 
 You'll find that you'll need a 3090 (24GB VRAM) or higher to finetune in any realistic timeframe.
 Please check out TheBloke (https://huggingface.co/TheBloke) for GPTQ/GGUFs to train time efficiently. 
 
 Data Documentation
 - data/: Contains datasets used for model training and evaluation.
-  - train_data.csv: The training dataset containing input-output pairs.
-  - valid_data.csv: The validation dataset used during model evaluation.
-  - test_data.csv: The testing dataset used to test the model's performance.
+  - training_data.csv: The training dataset containing input-output pairs.
+  - validation_data.csv: The validation dataset used during model evaluation.
 
 ---
 
@@ -31,9 +30,9 @@ Models Documentation
 ---
 
 Pretrained Models Documentation
-- pretrained_models/: Contains pretrained models that can be fine-tuned on specific tasks.
+- pretrained_models/: Contains pre-trained models that can be fine-tuned on specific tasks.
   - language_model.pt: A general-purpose language model.
-  - classifier_model.pt: A model pretrained for classification tasks.
+  - classifier_model.pt: A model pre-trained for classification tasks.
 
 ---
 
