@@ -18,7 +18,7 @@ The directory contains several scripts, each with its unique purpose:
 
 - `train_model.py`:
   - Role: The core training script. It initializes the model, tokenizes the data, and then trains the model.
-  - Importance: This script is where the actual learning happens. It fine-tunes the pretrained model on the provided data and produces the final trained model.
+  - Importance: This script is where the actual learning happens. It fine-tunes the pre-trained model on the provided data and produces the final trained model.
 
 3. Detailed Insights:
 - Data Flow: The process typically starts with `database_utils.py`, where data is extracted. Then, `data_utils.py` processes and prepares this data. Finally, `train_model.py` takes this prepared data and trains the model.
@@ -63,7 +63,7 @@ The evaluation metrics are printed to the terminal, providing insights into the 
 
 ### `data_processing.py`
 
-This script is centered around processing and handling email content for machine learning tasks.
+This script is centered around processing and handling email content for machine-learning tasks.
 
 **Functional Overview**:
 1. **Import Necessary Libraries**: Essential PyTorch libraries, such as `torch` and `Dataset`, are imported to facilitate dataset creation.
@@ -108,9 +108,9 @@ Use this script as a utility to extract email data from SQLite databases. The fu
 4. **Set Chunk Size**: Defines a chunk size to process the CSV in smaller batches, facilitating more efficient processing of large datasets.
 5. **Data Processing Loop**:
    - Iterates over the CSV dataset in chunks.
-   - Reconstructs the email content in each chunk.
+   - Reconstruct the email content in each chunk.
    - Splits the chunk into training and validation sets.
    - Writes the processed data to the respective SQLite databases.
 
 **Usage**:
-Run this script when you have a new, large CSV dataset with email content. The script will process the data and populate the SQLite databases with tokenized email content, ready for use in model training and validation.
+Run this script when you have a new, large CSV dataset with text content. The script will process the data and populate the SQLite databases with tokenized email content, ready for use in model training and validation.
