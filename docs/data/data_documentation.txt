@@ -8,20 +8,20 @@ The `data` folder is the cornerstone of the entire project. Machine Learning, es
 2. Structure and Contents:
 - `training_data.db`: 
   - Type: SQLite database
-  - Role: Contains the main bulk of email bodies used for training.
+  - Role: Contains the main bulk of text information used for training (80% of total dataset).
   - Reason for Choice: Databases offer efficient, scalable, and structured storage, making it easier to handle large volumes of data. SQLite, being a lightweight database, doesn't require a server setup, making it convenient for projects like these.
 - `validation_data.db`: 
   - Type: SQLite database
-  - Role: Houses a subset of email bodies that aren't used in training. These are reserved to evaluate the model's performance on unseen data.
+  - Role: Houses a subset of text information that isn't used in training (20% of total dataset). These are reserved to evaluate the model's performance on unseen data.
   - Reason for Choice: Using a database format for validation ensures consistency in data handling and processing between training and validation phases.
 
 3. Detailed Insights:
 - Training Data (`training_data.db`):
-  - Structure: Expected to contain tables with rows of email data. Each row corresponds to the body of an email.
-  - Significance: The diversity in the email bodies helps the model learn various linguistic patterns, sentence structures, and nuances. This wide exposure is crucial for the model to generate meaningful responses in the future.
+  - Structure: Expected to contain tables with rows of text information. Each row corresponds to the body of unique text.
+  - Significance: The diversity in the text bodies helps the model learn various linguistic patterns, sentence structures, and nuances. This wide exposure is crucial for the model to generate meaningful responses in the future.
   - Tokenization: Before feeding into the model, the textual data is tokenized, converting words or characters into numerical tokens. This step is critical because deep learning models understand numbers, not raw text.
 - Validation Data (`validation_data.db`):
-  - Structure: Expected to contain tables similar to the training database, with rows of email data.
+  - Structure: Expected to contain tables similar to the training database, with rows of text data.
   - Significance: Evaluating a model on unseen data gives a genuine measure of its performance. It ensures that the model isn't just memorizing the training data but is genuinely learning patterns.
   - Tokenization: Similar to training data, validation data is also tokenized before evaluation.
 
